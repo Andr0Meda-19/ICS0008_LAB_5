@@ -70,7 +70,7 @@ input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-button[type="submit"] {
+/* button[type="submit"] {
     background-color: hsl(211, 100%, 50%);
     color: #fff;
     padding: 10px 20px;
@@ -83,7 +83,7 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: hsl(211, 100%, 35%);
-}
+} */
 
 /* button#downloadAll {
     background-color: hsl(24, 100%, 50%);

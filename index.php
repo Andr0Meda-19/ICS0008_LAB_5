@@ -221,7 +221,7 @@
         fclose($file);
 ?>
     <form id="formDownload" action="index.php" method="POST">
-        <button type="submit" id="download" name="download">Download your registration data</button>
+        <input type="submit" id="download" name="download" value="Download your registration data">
     </form>
     <div id="confirmedText">
 <?php
