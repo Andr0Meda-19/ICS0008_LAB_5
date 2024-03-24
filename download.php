@@ -14,7 +14,24 @@
         echo "<p>Caught exception: " . $e->getMessage() . PHP_EOL . "</p>";
     }
     
-    if (isset($_POST["download"])) {
+    if (isset($_POST["download"]) && file_exists($csvFile)) {
+        header("Content-Type: text/csv");
+        header('Content-Disposition: attachment; filename="last_registration.csv"');
+        
+        $lastLine = [];
+        $downloadFile = fopen($csvFile, "r");
+        while (($buffer = fgetcsv($downloadFile, 1000 , ';', '"', '\\')) !== FALSE) {
+            $lastLine = $buffer;
+        }
+        foreach($lastLine as $index => $word) {
+            if ($index < count($lastLine) - 1) echo $word . ";";
+            else echo $word;
+        }
+        fclose($downloadFile);
+        exit();
+    }
+
+    if (isset($_POST["downloadAll"]) && file_exists($csvFile)) {
         header("Content-Type: text/csv");
         header('Content-Disposition: attachment; filename="registrations.csv"');
         readfile($csvFile);
@@ -29,6 +46,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="antimo">
     <title>LAB 5 - PHP Info</title>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
     <header>
@@ -42,7 +60,11 @@
         <p>Number of registrations: <?php echo $registrations; ?></p>
     </div>
     <form action="download.php" method="POST">
-        <button type="submit" id="download" name="download">Download registration data</button>
+        <button type="submit" id="download" name="download">Download last registration</button>
+    </form>
+    <br>
+    <form action="download.php" method="POST">
+        <button type="submit" id="downloadAll" name="downloadAll">Download ALL registrations</button>
     </form>
 </body>
 </html>

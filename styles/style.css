@@ -18,8 +18,9 @@ body {
 }
 
 #formReserve {
-    width: 250px;
+    width: fit-content;
     padding: 10px;
+    max-width: 250px;
     /* background-color: #fff;
     margin: 50px auto;
     border-radius: 8px;
@@ -27,7 +28,7 @@ body {
 }
 
 #formDownload {
-    width: 250px;
+    width: fit-content;
     padding: 10px;
 }
 
@@ -62,6 +63,7 @@ input[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 1rem;
 }
 
 input[type="submit"]:hover {
@@ -69,18 +71,38 @@ input[type="submit"]:hover {
 }
 
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: hsl(211, 100%, 50%);
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+button[type="submit"]:hover {
+    background-color: hsl(211, 100%, 35%);
+}
+
+button#downloadAll {
+    background-color: hsl(24, 100%, 50%);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+button#downloadAll:hover {
+    background-color: hsl(24, 100%, 35%);
 }
 
 #confirmedError {
     width: fit-content;
-    /* max-width: 500px; */
+    max-width: 500px;
     height: fit-content;
     padding: 20px 10px;
     background-color: #f8d7da;
@@ -95,7 +117,7 @@ button[type="submit"] {
 }
 
 #confirmedText {
-    width: auto;
+    width: fit-content;
     max-width: 500px;
     height: fit-content;
     padding: 20px 10px;
@@ -111,4 +133,28 @@ button[type="submit"] {
 
 br:last-child {
     display: none;
+}
+
+p {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    padding: 10px 0;
+}
+
+h1 {
+    font-weight: 500;
+    padding: 10px 0;
 }
