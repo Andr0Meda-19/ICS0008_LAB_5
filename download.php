@@ -31,12 +31,12 @@
         exit();
     }
 
-    if (isset($_POST["downloadAll"]) && file_exists($csvFile)) {
-        header("Content-Type: text/csv");
-        header('Content-Disposition: attachment; filename="registrations.csv"');
-        readfile($csvFile);
-        exit();
-    }
+    // if (isset($_POST["downloadAll"]) && file_exists($csvFile)) {
+    //     header("Content-Type: text/csv");
+    //     header('Content-Disposition: attachment; filename="registrations.csv"');
+    //     readfile($csvFile);
+    //     exit();
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -59,12 +59,12 @@
         <h1>Registration stats</h1>
         <p>Number of registrations: <?php echo $registrations; ?></p>
     </div>
-    <form action="download.php" method="POST">
-        <button type="submit" id="download" name="download">Download last registration</button>
+    <!-- <form action="download.php" method="POST">
+        <button type="submit" id="downloadLast" name="downloadLast">Download last registration</button>
     </form>
-    <br>
+    <br> -->
     <form action="download.php" method="POST">
-        <button type="submit" id="downloadAll" name="downloadAll">Download ALL registrations</button>
+        <input type="submit" id="download" name="download" value="Download registration data">
     </form>
 </body>
 </html>

@@ -187,7 +187,7 @@
         <label for="comment">Comment:</label>
         <textarea id="comment" name="comment" placeholder="optional" maxlength="200"></textarea><br>
         
-        <input type="submit" id="submitReservation" name="submitReservation">
+        <input type="submit" id="submitReservation" name="submitReservation" value="Submit">
     </form>
 
 <?php
