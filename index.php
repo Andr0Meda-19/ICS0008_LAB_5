@@ -5,19 +5,22 @@
             header("Content-Type: text/csv");
             header('Content-Disposition: attachment; filename="registration.csv"');
             
+            echo $_POST["strData"];
+            exit;
+
             // readfile($csvFile);
             
-            $lastLine = [];
-            $downloadFile = fopen($csvFile, "r");
-            while (($buffer = fgetcsv($downloadFile, 1000 , ';', '"', '\\')) !== FALSE) {
-                $lastLine = $buffer;
-            }
-            foreach($lastLine as $index => $word) {
-                if ($index < count($lastLine) - 1) echo $word . ";";
-                else echo $word;
-            }
-            fclose($downloadFile);
-            exit();    
+            // $lastLine = [];
+            // $downloadFile = fopen($csvFile, "r");
+            // while (($buffer = fgetcsv($downloadFile, 1000 , ';', '"', '\\')) !== FALSE) {
+            //     $lastLine = $buffer;
+            // }
+            // foreach($lastLine as $index => $word) {
+            //     if ($index < count($lastLine) - 1) echo $word . ";";
+            //     else echo $word;
+            // }
+            // fclose($downloadFile);
+            // exit();    
         } else {
             $noFile = "<br><p>" . "File not found!" . "</p>";
         }
@@ -219,8 +222,11 @@
         $file = fopen($csvFile, "a");
         fputcsv($file, $registrationData, ";", '"', "\\", PHP_EOL);
         fclose($file);
+
+        $strData = implode(";", $registrationData);
 ?>
     <form id="formDownload" action="index.php" method="POST">
+        <input type="hidden" id="strData" name="strData" value="<?php echo $strData; ?>">
         <input type="submit" id="download" name="download" value="Download your registration data">
     </form>
     <div id="confirmedText">
